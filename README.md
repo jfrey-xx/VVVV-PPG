@@ -18,3 +18,9 @@ Because current kinect2 implementation only works with 64bit version whereas fac
 * image pack: http://vvvv.org/contribution/vvvv.packs.image (tested vvvv.packs_.image_b33-x86.zip - 02.09.14 [21:27 UTC])
 * kinect2 nodes: http://vvvv.org/contribution/kinect2-nodes (tested VVVV.Nodes_.K2.zip - 28.07.14 [19:42 UTC]) 
 * FFT value: https://github.com/jens-a-e/VVVV-FFT-Value (tested 123bce9d10d47ba22c041c132bb632fb60b282ae)
+
+## Screenshot
+
+Because it's *so* readable to add comments on top of a visual programming language:
+
+![Commented screenshot](../doc/kinect-ppg-screenshot.png)
