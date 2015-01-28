@@ -23,4 +23,4 @@ Because current kinect2 implementation only works with 64bit version whereas fac
 
 Because it's *so* readable to add comments on top of a visual programming language:
 
-![Commented screenshot](../doc/kinect-ppg-screenshot.png)
+![Commented screenshot](./doc/kinect-ppg-screenshot.png?raw=true)
