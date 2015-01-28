@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\TestDetectBPM_All.v4p" scrollx="0" scrolly="4320" systemname="TestExtractFaceSimple" filename="C:\Users\jfrey\Desktop\tracking\TestExtractFaceSimple.v4p">
-   <BOUNDS type="Window" left="4155" top="375" width="13425" height="9960">
+   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\TestDetectBPM_All.v4p" scrollx="0" scrolly="-360" systemname="TestExtractFaceSimple" filename="C:\Users\jfrey\Desktop\tracking\TestExtractFaceSimple.v4p">
+   <BOUNDS type="Window" left="1020" top="330" width="11910" height="11295">
    </BOUNDS>
    <PACK Name="Image" Version="0.2.0">
    </PACK>
@@ -96,22 +96,6 @@
    <PIN pinname="Face" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="212" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="3630" top="7170" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3630" top="7170" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="20">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="231" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="285" top="615" width="795" height="240">
    </BOUNDS>
@@ -171,7 +155,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6570" top="870" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="|Logitech HD Webcam C270|">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="|Integrated Webcam|">
    </PIN>
    </NODE>
    <LINK srcnodeid="236" srcpinname="Output Enum" dstnodeid="233" dstpinname="Driver">
@@ -185,7 +169,7 @@
    </PIN>
    <PIN pinname="InputFeed" visible="1">
    </PIN>
-   <PIN pinname="FeedVideo" visible="1">
+   <PIN pinname="FeedVideo" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="232" srcpinname="Y Output Value" dstnodeid="240" dstpinname="Height">
@@ -205,7 +189,7 @@
    <NODE systemname="ExtractFace" filename="ExtractFace.v4p" nodename="ExtractFace.v4p" componentmode="Hidden" id="242">
    <BOUNDS type="Node" left="1095" top="2580" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="FaceDetected" visible="1">
+   <PIN pinname="FaceDetected" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Face" visible="1">
    </PIN>
@@ -224,12 +208,10 @@
    </LINK>
    <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="242" dstpinname="ResetTracker">
    </LINK>
-   <LINK srcnodeid="233" srcpinname="Video" dstnodeid="242" dstpinname="VideoInput">
-   </LINK>
    <NODE systemname="DetectVideoBPM" filename="DetectVideoBPM.v4p" nodename="DetectVideoBPM.v4p" componentmode="Hidden" id="243">
    <BOUNDS type="Node" left="1920" top="7755" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="InputFPS" visible="1">
+   <PIN pinname="InputFPS" visible="1" slicecount="1" values="10">
    </PIN>
    <PIN pinname="FacePixels" visible="1">
    </PIN>
@@ -237,9 +219,13 @@
    </PIN>
    <PIN pinname="FFTLayer" visible="1">
    </PIN>
+   <BOUNDS type="Window" left="2445" top="600" width="15615" height="9810">
+   </BOUNDS>
+   <PIN pinname="ComputationWindow (s)" visible="1">
+   </PIN>
+   <PIN pinname="EffectiveWindowSize" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="212" srcpinname="Y Output Value" dstnodeid="243" dstpinname="InputFPS">
-   </LINK>
    <LINK srcnodeid="69" srcpinname="FacePixels" dstnodeid="243" dstpinname="FacePixels">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="244" systemname="IOBox (Value Advanced)">
@@ -271,5 +257,63 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="243" srcpinname="FFTLayer" dstnodeid="245" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="240" srcpinname="FeedVideo" dstnodeid="242" dstpinname="VideoInput">
+   </LINK>
+   <NODE systemname="MeanFPS" filename="MeanFPS.v4p" nodename="MeanFPS.v4p" componentmode="Hidden" id="247">
+   <BOUNDS type="Node" left="3165" top="7185" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="MeanFPS" visible="1">
+   </PIN>
+   <PIN pinname="WindowSize" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="246" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3195" top="6810" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3195" top="6810" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1000">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="246" srcpinname="Y Output Value" dstnodeid="247" dstpinname="WindowSize">
+   </LINK>
+   <LINK srcnodeid="247" srcpinname="MeanFPS" dstnodeid="243" dstpinname="InputFPS">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="248" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4860" top="7170" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4860" top="7170" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="248" srcpinname="Y Output Value" dstnodeid="243" dstpinname="ComputationWindow (s)">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="249" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4950" top="7920" width="1545" height="285">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4950" top="7920" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="243" srcpinname="EffectiveWindowSize" dstnodeid="249" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

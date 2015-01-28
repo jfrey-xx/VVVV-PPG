@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\ReadBVP.v4p" systemname="ReadBVP" filename="C:\Users\jfrey\Desktop\tracking\ReadBVP.v4p" scrollx="0" scrolly="3240">
-   <BOUNDS type="Window" left="12420" top="1845" width="10275" height="8655">
+   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\ReadBVP.v4p" systemname="ReadBVP" filename="C:\Users\jfrey\Desktop\tracking\ReadBVP.v4p" scrollx="0" scrolly="-360">
+   <BOUNDS type="Window" left="6765" top="5430" width="10275" height="8655">
    </BOUNDS>
    <PACK Name="Image" Version="0.2.0">
    </PACK>
@@ -197,7 +197,7 @@
    </BOUNDS>
    <PIN pinname="InputValues" visible="1">
    </PIN>
-   <PIN pinname="ComputationWindow" visible="1">
+   <PIN pinname="ComputationWindow" visible="1" slicecount="1" values="1024">
    </PIN>
    <PIN pinname="InputFPS" visible="1">
    </PIN>
@@ -213,11 +213,11 @@
    <LINK srcnodeid="38" srcpinname="Output" dstnodeid="55" dstpinname="InputValues">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="56" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4845" top="6795" width="795" height="240">
+   <BOUNDS type="Box" left="315" top="6645" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4845" top="6795" width="0" height="0">
+   <BOUNDS type="Node" left="315" top="6645" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1024">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="5">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -225,11 +225,11 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="5" values="ComputationWindow,ComputationWindow,ComputationWindow,ComputationWindow,ComputationWindow">
+   <PIN pinname="Descriptive Name" slicecount="5" values="|ComputationWindow (s)|,|ComputationWindow (s)|,|ComputationWindow (s)|,|ComputationWindow (s)|,|ComputationWindow (s)|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="55" dstpinname="ComputationWindow">
-   </LINK>
    <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="55" dstpinname="InputFPS">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="57" systemname="IOBox (Value Advanced)">
@@ -318,4 +318,90 @@
    </NODE>
    <LINK srcnodeid="72" srcpinname="Y Output Value" dstnodeid="55" dstpinname="FrreqMax">
    </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="73" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="330" top="5760" width="2940" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="330" top="5760" width="1530" height="600">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Convert nbSeconds in number of values|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="NextPow2" filename="NextPow2.v4p" nodename="NextPow2.v4p" componentmode="InAWindow" id="74">
+   <BOUNDS type="Node" left="705" top="7875" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="1024">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="74" srcpinname="Output" dstnodeid="55" dstpinname="ComputationWindow">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="75">
+   <BOUNDS type="Node" left="795" top="7245" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="75" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="75" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="75" srcpinname="Output" dstnodeid="74" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="77" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="750" top="9105" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="750" top="9105" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="EffectiveWindowSize">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="128">
+   </PIN>
+   </NODE>
+   <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="79">
+   <BOUNDS type="Node" left="735" top="8655" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="79" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="74" srcpinname="Output" dstnodeid="79" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="79" srcpinname="Output" dstnodeid="77" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="80" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="555" top="9780" width="3960" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="9780" width="1815" height="705">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Informe user about the effective time one need to rest|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>
