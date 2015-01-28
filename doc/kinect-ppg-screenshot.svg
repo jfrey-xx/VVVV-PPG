@@ -36,7 +36,7 @@
      inkscape:guide-bbox="true"
      inkscape:window-width="1920"
      inkscape:window-height="1145"
-     inkscape:window-x="1918"
+     inkscape:window-x="-2"
      inkscape:window-y="-3"
      inkscape:window-maximized="1" />
   <defs
@@ -519,5 +519,5 @@
            x="751.42859"
            y="163.79076"
            style="fill:#00ffff;stroke:none" /></flowRegion><flowPara
-         id="flowPara5421">PulseSensor connected to a arduino </flowPara></flowRoot>  </g>
+         id="flowPara5421">PulseSensor connected to an arduino </flowPara></flowRoot>  </g>
 </svg>
