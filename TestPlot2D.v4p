@@ -1,0 +1,61 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\TestPlot2D.v4p" systemname="TestPlot2D" filename="C:\Users\jfrey\Desktop\tracking\TestPlot2D.v4p">
+   <BOUNDS type="Window" left="1335" top="540" width="9000" height="6000">
+   </BOUNDS>
+   <PACK Name="Image" Version="0.2.0">
+   </PACK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="Plot2D" filename="Plot2D.v4p" nodename="C:\Users\jfrey\Desktop\tracking\Plot2D.v4p" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="3465" top="2355" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="8820" top="1470" width="15630" height="10185">
+   </BOUNDS>
+   <PIN pinname="PlotLayer" visible="1">
+   </PIN>
+   <PIN pinname="InputY" visible="1" slicecount="1" values="-0.364602876797999">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="1">
+   <BOUNDS type="Node" left="2730" top="4035" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2730" top="4035" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12195" top="7635" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="PlotLayer" dstnodeid="1" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="MouseStates (Mouse Split)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseStates (Mouse Split)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="2655" top="945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXY" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Mouse (Devices Desktop)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Desktop)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2445" top="390" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Device" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Device" dstnodeid="4" dstpinname="Mouse">
+   </LINK>
+   <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="2760" top="1485" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="PositionXY" dstnodeid="2" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y" dstnodeid="0" dstpinname="InputY">
+   </LINK>
+   </PATCH>

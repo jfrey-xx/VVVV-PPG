@@ -1,0 +1,281 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\SelectVideoSource.v4p" systemname="SelectVideoSourceTest" filename="C:\Users\jfrey\Desktop\tracking\SelectVideoSourceTest.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="3915" top="1245" width="11565" height="9810">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="6" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="0" left="1665" top="180" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="630" left="1665" top="180" type="Box" width="1530">
+   </BOUNDS>
+   <BOUNDS height="160" left="6480" top="6345" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Input String" slicecount="2" values="KinectRGB,KinectIR">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="5" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="3750" top="225" type="Node" width="4320">
+   </BOUNDS>
+   <BOUNDS height="555" left="3750" top="225" type="Box" width="1725">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Create enum with available kinect feed|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="4" nodename="CreateEnum (Enumerations)" systemname="CreateEnum (Enumerations)">
+   <PIN pinname="Strings" visible="1">
+   </PIN>
+   <PIN pinname="Enum Name" slicecount="1" values="Kinect_Feeds">
+   </PIN>
+   <BOUNDS height="270" left="1665" top="1230" type="Node" width="960">
+   </BOUNDS>
+   </NODE>
+   <LINK dstnodeid="4" dstpinname="Strings" srcnodeid="6" srcpinname="Output String">
+   </LINK>
+   <NODE componentmode="Hidden" id="3" nodename="NULL (Enumerations)" systemname="NULL (Enumerations)">
+   <BOUNDS height="270" left="7350" top="3750" type="Node" width="660">
+   </BOUNDS>
+   <PIN pinname="Receive" visible="1">
+   </PIN>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="2" nodename="IOBox (Enumerations)" systemname="IOBox (Enumerations)">
+   <BOUNDS height="0" left="6495" top="2925" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="240" left="6495" top="2925" type="Box" width="1155">
+   </BOUNDS>
+   <BOUNDS height="160" left="6270" top="4695" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Input Enum" slicecount="1" values="Kinect_Feeds">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="3" dstpinname="Enum" srcnodeid="2" srcpinname="Output Enum">
+   </LINK>
+   <NODE componentmode="Hidden" id="1" nodename="Enum2String (Enumerations)" systemname="Enum2String (Enumerations)">
+   <BOUNDS height="270" left="8130" top="3720" type="Node" width="1110">
+   </BOUNDS>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   <PIN pinname="String Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="0" nodename="IOBox (Enumerations)" systemname="IOBox (Enumerations)">
+   <BOUNDS height="0" left="7995" top="2940" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="240" left="7995" top="2940" type="Box" width="1500">
+   </BOUNDS>
+   <BOUNDS height="160" left="7530" top="12180" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="KinectRGB">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="InputFeed">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="1" dstpinname="Enum" srcnodeid="0" srcpinname="Output Enum">
+   </LINK>
+   <LINK dstnodeid="3" dstpinname="Receive" srcnodeid="0" srcpinname="Output Enum">
+   </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="ReadKinectRGB" filename="ReadKinectRGB.v4p" nodename="ReadKinectRGB.v4p" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="5940" top="2055" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="TextureKinectRGB" visible="1">
+   </PIN>
+   </NODE>
+   <PACK Name="Image" Version="0.2.0">
+   </PACK>
+   <NODE systemname="ReadKinectIR" filename="ReadKinectIR.v4p" nodename="ReadKinectIR.v4p" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="7680" top="2070" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="TextureKinectIR" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Resize (EX9.Texture)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\Resize (EX9.Texture).v4p" nodename="Resize (EX9.Texture)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="2865" top="5520" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Width" slicecount="1" visible="1" values="11">
+   </PIN>
+   <PIN pinname="Height" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3015" top="4935" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3015" top="4935" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="320">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Width">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Width">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4020" top="4920" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4020" top="4920" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="240">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Height">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Height">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="9" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4995" top="4755" width="4785" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4995" top="4755" width="2505" height="720">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|We have to resize to a resolution handled by Video -- eg 320x240|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cons (EX9.Texture)" nodename="Cons (EX9.Texture)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="3045" top="3210" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture In Count" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Texture In 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture In 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture In 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="TextureKinectIR" dstnodeid="24" dstpinname="Texture In 3">
+   </LINK>
+   <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="2955" top="3675" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Texture Out" dstnodeid="27" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Output Node" dstnodeid="13" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="28" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="330" top="3135" width="5085" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="330" top="3135" width="1980" height="885">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|combine all video in a single spread... that the enum could then select|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="Enum2Ord (Enumerations)" nodename="Enum2Ord (Enumerations)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="8010" top="4215" width="975" height="270">
+   </BOUNDS>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   <PIN pinname="Ord Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output Enum" dstnodeid="29" dstpinname="Enum">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Ord Value" dstnodeid="27" dstpinname="Index">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="30" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2805" top="6780" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2805" top="6780" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="FeedTexture">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="30" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="33" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="3885" top="6765" width="2880" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3885" top="6765" width="2880" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|Texture ready to be parsed by AsVideo|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsVideo (EX9.Texture)" nodename="AsVideo (EX9.Texture)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="1500" top="5940" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Video" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="37" dstpinname="Texture">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="38" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1290" top="6885" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1290" top="6885" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="FeedVideo">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="Video" dstnodeid="38" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="TextureKinectRGB" dstnodeid="24" dstpinname="Texture In 1">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="TextureKinectIR" dstnodeid="24" dstpinname="Texture In 2">
+   </LINK>
+   </PATCH>
