@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\TestDetectBPM_All.v4p" scrollx="0" scrolly="2160" systemname="TestExtractFaceSimple" filename="C:\Users\jfrey\Desktop\tracking\TestExtractFaceSimple.v4p">
-   <BOUNDS type="Window" left="9420" top="630" width="13425" height="9960">
+   <PATCH nodename="C:\Users\jfrey\Desktop\tracking\TestDetectBPM_All.v4p" scrollx="0" scrolly="4320" systemname="TestExtractFaceSimple" filename="C:\Users\jfrey\Desktop\tracking\TestExtractFaceSimple.v4p">
+   <BOUNDS type="Window" left="4155" top="375" width="13425" height="9960">
    </BOUNDS>
    <PACK Name="Image" Version="0.2.0">
    </PACK>
@@ -96,60 +96,10 @@
    <PIN pinname="Face" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InABox" id="134">
-   <BOUNDS type="Node" left="750" top="6975" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="750" top="6975" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="10275" top="1530" width="14580" height="8415">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="fft">
-   </PIN>
-   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="View" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE systemname="DetectBPM" filename="DetectBPM.v4p" nodename="DetectBPM.v4p" componentmode="Hidden" id="210">
-   <BOUNDS type="Node" left="765" top="10245" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="FacePixels" visible="1">
-   </PIN>
-   <PIN pinname="FFTLayer" visible="1">
-   </PIN>
-   <PIN pinname="BPM" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="6450" top="1350" width="15615" height="9810">
-   </BOUNDS>
-   <PIN pinname="InputFPS" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="69" srcpinname="FacePixels" dstnodeid="210" dstpinname="FacePixels">
-   </LINK>
-   <LINK srcnodeid="210" srcpinname="FFTLayer" dstnodeid="134" dstpinname="Layers">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="211" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2910" top="10935" width="795" height="960">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2910" top="10935" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="4" values=",,,">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="210" srcpinname="BPM" dstnodeid="211" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="212" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1575" top="9615" width="795" height="240">
+   <BOUNDS type="Box" left="3630" top="7170" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1575" top="9615" width="0" height="0">
+   <BOUNDS type="Node" left="3630" top="7170" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="20">
    </PIN>
@@ -159,9 +109,9 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="212" srcpinname="Y Output Value" dstnodeid="210" dstpinname="InputFPS">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="231" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="285" top="615" width="795" height="240">
    </BOUNDS>
@@ -275,5 +225,51 @@
    <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="242" dstpinname="ResetTracker">
    </LINK>
    <LINK srcnodeid="233" srcpinname="Video" dstnodeid="242" dstpinname="VideoInput">
+   </LINK>
+   <NODE systemname="DetectVideoBPM" filename="DetectVideoBPM.v4p" nodename="DetectVideoBPM.v4p" componentmode="Hidden" id="243">
+   <BOUNDS type="Node" left="1920" top="7755" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="InputFPS" visible="1">
+   </PIN>
+   <PIN pinname="FacePixels" visible="1">
+   </PIN>
+   <PIN pinname="BPM" visible="1">
+   </PIN>
+   <PIN pinname="FFTLayer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="212" srcpinname="Y Output Value" dstnodeid="243" dstpinname="InputFPS">
+   </LINK>
+   <LINK srcnodeid="69" srcpinname="FacePixels" dstnodeid="243" dstpinname="FacePixels">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="244" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4200" top="8730" width="795" height="960">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4200" top="8730" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values=",,,">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="243" srcpinname="BPM" dstnodeid="244" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InABox" id="245">
+   <BOUNDS type="Node" left="1200" top="8535" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1200" top="8535" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11805" top="10485" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="243" srcpinname="FFTLayer" dstnodeid="245" dstpinname="Layers">
    </LINK>
    </PATCH>
